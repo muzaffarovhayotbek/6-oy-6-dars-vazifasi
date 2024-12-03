@@ -42,6 +42,17 @@ function App() {
     setEmail('');
   };
 
+  const addTask = () => {
+    if (newTask) setTasks((prev) => [...prev, newTask]);
+    setNewTask('');
+  };
+
+  const deleteTask = (index) => {
+    if (window.confirm('ToDo ni o‘chirishni xohlaysizmi?')) {
+      setTasks((prev) => prev.filter((_, i) => i !== index));
+    }
+  };
+
   return (
     <div className="container">
       <h1 className="header">Interaktiv Funksiyalar</h1>
@@ -148,17 +159,13 @@ function App() {
           placeholder="Vazifani kiriting"
           className="input-field"
         />
-        addTask
+        <button onClick={addTask} className="button">
+          Qo'shish
+        </button>
         <div className="task-list">
           {tasks.map((task, index) => (
             <div key={index} className="task-item">
               <span>{task}</span>
-              <button
-                onClick={() => deleteTask(index)}
-                className="delete-button"
-              >
-                O'chirish
-              </button>
             </div>
           ))}
         </div>
