@@ -36,20 +36,10 @@ function App() {
   };
 
   const validateEmail = () => {
-    if (email.includes('@') && email.includes('.')) setEmailMessage('Email to‘g‘ri');
-    else setEmailMessage('Email noto‘g‘ri');
+    if (email.includes('@') && email.includes('.'))
+      setEmailMessage('Email to`g`ri');
+    else setEmailMessage('Email noto`g`ri');
     setEmail('');
-  };
-
-  const addTask = () => {
-    if (newTask) setTasks((prev) => [...prev, newTask]);
-    setNewTask('');
-  };
-
-  const deleteTask = (index) => {
-    if (window.confirm('ToDo ni o‘chirishni xohlaysizmi?')) {
-      setTasks((prev) => prev.filter((_, i) => i !== index));
-    }
   };
 
   return (
@@ -65,10 +55,7 @@ function App() {
           placeholder="Raqam kiriting"
           className="input-field"
         />
-        <button
-          onClick={validateShape}
-          className="button"
-        >
+        <button onClick={validateShape} className="button">
           Aniqlash
         </button>
         <p className="result">{shape}</p>
@@ -90,16 +77,12 @@ function App() {
           placeholder="Parolni tasdiqlang"
           className="input-field"
         />
-        <button
-          onClick={validatePassword}
-          className="button"
-        >
+        <button onClick={validatePassword} className="button">
           Tekshirish
         </button>
         <p className="result">{passMessage}</p>
       </div>
 
-      {/* 3. Ro'yxatni tanlash */}
       <div className="section">
         <h2 className="section-title">3. Ro'yxatni tanlash</h2>
         <div className="checkbox-group">
@@ -115,12 +98,9 @@ function App() {
             </div>
           ))}
         </div>
-        <div className="result">
-          {fruits.length > 0 && fruits.join(', ')}
-        </div>
+        <div className="result">{fruits.length > 0 && fruits.join(', ')}</div>
       </div>
 
-      {/* 4. Rangni tanlash */}
       <div className="section">
         <h2 className="section-title">4. Rangni tanlash</h2>
         <div className="radio-group">
@@ -140,32 +120,25 @@ function App() {
             </div>
           ))}
         </div>
-        <div
-          style={{ backgroundColor: color }}
-          className="color-box"
-        ></div>
+        <div style={{ backgroundColor: color }} className="color-box"></div>
       </div>
 
-      {/* 5. Email tekshirish */}
       <div className="section">
         <h2 className="section-title">5. Emailni tekshirish</h2>
         <input
+          required
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Emailingizni kiriting"
           className="input-field"
         />
-        <button
-          onClick={validateEmail}
-          className="button"
-        >
+        <button onClick={validateEmail} className="button">
           Tekshirish
         </button>
         <p className="result">{emailMessage}</p>
       </div>
 
-      {/* 6. To-do ro'yxati */}
       <div className="section">
         <h2 className="section-title">6. To-do ro'yxati</h2>
         <input
@@ -175,12 +148,7 @@ function App() {
           placeholder="Vazifani kiriting"
           className="input-field"
         />
-        <button
-          onClick={addTask}
-          className="button"
-        >
-          Qo'shish
-        </button>
+        addTask
         <div className="task-list">
           {tasks.map((task, index) => (
             <div key={index} className="task-item">
